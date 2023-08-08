@@ -1,0 +1,21 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title> insert title hear</title>
+
+	</head>
+	<h1>Formulario de cadastro </h1>
+	<form action="primeiraServlet" method="post">
+
+		<label for="nome">Nome:</label>
+		<input type="text" id="nome" name="nome"></input>
+
+		<label for="email">Email:</label>
+		<input type="text" id="email" name="email"></input>
+
+		<input type=submite" value="enviar">
+
+	</form>
+
+</html>
