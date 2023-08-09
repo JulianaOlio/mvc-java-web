@@ -1,0 +1,5 @@
+INDEX VERSION 1.134+C:\Users\jully\Repositorio\mvc-java-web\aulas\aula2-07-08-2023\.metadata\.plugins\org.eclipse.jdt.core
+4128122868.index
+2055073896.index
+2200339744.index
+1865797976.index
