@@ -10,44 +10,36 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
    
-  <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>LoginServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>MenuInicial</servlet-name>
-    <servlet-class>MenuInicial</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>MenuInicial</servlet-name>
-    <url-pattern>/menuInicial</url-pattern>
-  </servlet-mapping>
-  
-    <servlet>
-    <servlet-name>MenuAdm</servlet-name>
-    <servlet-class>MenuAdm</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>MenuAdm</servlet-name>
-    <url-pattern>/menuAdm</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>ErroLogin</servlet-name>
-    <servlet-class>ErroLogin</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>>ErroLogin</servlet-name>
-    <url-pattern>/erroLogin</url-pattern>
-  </servlet-mapping>
-  
+ <!-- Servlet da tela de Login -->
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>controller.LoginController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+<!-- Servlet da tela de Login -->
+	<servlet>
+		<servlet-name>MenuAdm</servlet-name>
+		<servlet-class>controller.MenuAdmController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MenuAdm</servlet-name>
+		<url-pattern>/menuAdm</url-pattern>
+	</servlet-mapping>
+
+<!-- Servlet do cadastro de usuario -->
+	
+	<servlet>
+		<servlet-name>CadastroUsuario</servlet-name>
+		<servlet-class>controller.CadastroUsuarioController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CadastroUsuario</servlet-name>
+		<url-pattern>/cadastroUsuario</url-pattern>
+	</servlet-mapping>
+ 
+     
 </web-app>
