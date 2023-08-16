@@ -18,7 +18,7 @@ public class DaoUsuario {
 		boolean salvar = false;
 		
 		// comando SQL que sera usado no Banco de Dados
-		String comandoSqlInsert = "insert int tb_usuario (nome, perfil, senha) value (?, ?, ?)";
+		String comandoSqlInsert = "insert int tb_usuario (usuario, perfil, senha) value (?, ?, ?)";
 		
 		Connection conexaoRecebida = null;
 		PreparedStatement declaracaoComando = null; 
@@ -116,7 +116,7 @@ public class DaoUsuario {
 		//delete from tb_usuario where nome = 'JULIANA';	
 
 			public boolean deletarUsuario(String usuario) {
-				String sql = "delete from tb_usuario where usuario = ?";
+				String sql = "delete from db_usuarios where usuario = ?";
 				
 				
 				FabricaConexao fabricaConexao = new FabricaConexao();

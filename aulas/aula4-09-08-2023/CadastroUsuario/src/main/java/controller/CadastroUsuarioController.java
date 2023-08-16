@@ -14,12 +14,15 @@ import model.Usuario;
 import persistence.DaoUsuario;
 
 
-public class CadastroUsuario extends HttpServlet {
+public class CadastroUsuarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		DaoUsuario daoUsuario = new DaoUsuario();
+		
+		String nomeUsuario = " ";
+		String botaoForm = "Novo";
 		
 		HttpSession sessao = request.getSession();
 		
@@ -34,46 +37,16 @@ public class CadastroUsuario extends HttpServlet {
 				String acao = request.getParameter("action");
 				
 				if(acao != null && acao.equals("delete")) {
-					String nomeUsuario = request.getParameter("usuario");
-					daoUsuario.deletarUsuario(nomeUsuario);
+					String nomeDoUsuario = request.getParameter("usuario");
+					daoUsuario.deletarUsuario(nomeDoUsuario);
 					response.sendRedirect(request.getContextPath() +"/cadastroUsuario");
 				}
 				
-			}
-		}
-		
-	}
-	
-	public class CadastroUsuarioController extends HttpServlet {
-		private static final long serialVersionUID = 1L;
-	       
-	    
-		 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
-			 	DaoUsuario daoUsuario = new DaoUsuario();
-				
-				
-				HttpSession sessao = request.getSession();
-				
-				Usuario usuarioLogado = (Usuario) sessao.getAttribute("UsuarioSessao");
-				
-				if(usuarioLogado== null) {
-					response.sendRedirect(request.getContextPath() + "/login");
-				}else {
-					
-				
-				if(usuarioLogado.getPerfil().equals("ADM")) {
-			 
-					 String acao = request.getParameter("action");
-					
-					 if(acao != null && acao.equals("delete") ) {
-						 String nomeUsuario = request.getParameter("nome");
-						 daoUsuario.deletarUsuario(nomeUsuario);
-						 response.sendRedirect(request.getContextPath() + "/cadastroUsuario");
-						 
-					 }
-					 
-					 			 
+				if (acao != null && acao.equals("update")) {
+					nomeUsuario = request.getParameter("usuario");
+					botaoForm = "Atualizar"; 
+				}
+							 			 
 					 
 					 List<Usuario> usuarios = daoUsuario.buscarListaUsuario();
 					 
@@ -238,5 +211,5 @@ public class CadastroUsuario extends HttpServlet {
 	}
 
 }
-}
+
 
