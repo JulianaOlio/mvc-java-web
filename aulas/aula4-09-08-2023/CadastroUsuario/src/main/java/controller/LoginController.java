@@ -14,7 +14,8 @@ public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-	// Metodo responsavel por aprensetar o formulario de login
+	// Metodo respon. por apresentar o formulario de login
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().println("<!DOCTYPE html>\r\n"
 				+ "<html>\r\n"
@@ -99,7 +100,8 @@ public class LoginController extends HttpServlet {
 	}
 
 	
-	//Metodo responsavel por executar a ação do botão submit do login
+	//Metodo respons. por executar a ação do botão submit do login
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Inicializa o objeto Usuario
 		Usuario usuarioTentandoAutenticar = new Usuario();
@@ -111,6 +113,7 @@ public class LoginController extends HttpServlet {
 		
 		// busca o elemento userName na requisição
 		usuarioTentandoAutenticar.setUsuario(request.getParameter("username"));
+		
 		// busca o elemento  na requisição
 		usuarioTentandoAutenticar.setSenha(request.getParameter("password"));
 		
@@ -126,7 +129,7 @@ public class LoginController extends HttpServlet {
 			// Direciona para a pagina /menuAdm
 			response.sendRedirect(request.getContextPath()+ "/menuAdm");
 			
-			// Direciona Caso o login esteja errado
+			// Direciona no Caso do login estar errado
 		}else {
 			response.sendRedirect(request.getContextPath()+ "/erroLogin");
 		}
