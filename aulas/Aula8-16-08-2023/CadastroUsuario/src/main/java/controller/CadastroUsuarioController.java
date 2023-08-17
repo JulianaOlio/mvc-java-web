@@ -57,7 +57,7 @@ public class CadastroUsuarioController extends HttpServlet {
 						linhasDaTabela.append(" <td>").append(usuario.getUsuario()).append("</td>\r\n");
 						linhasDaTabela.append(" <td>").append(usuario.getPerfil()).append("</td>\r\n");
 						linhasDaTabela.append("    <td>\r\n");
-						linhasDaTabela.append("			<a href=\\\"cadastroUsuario?action=edit&usuario&perfil=" + usuario.getUsuario() + usuario.getPerfil() + "\" class=\"btn-atualizar\">Atualizar</a>\r\n");
+						linhasDaTabela.append("			<a href=\\\"cadastroUsuario?action=edit&usuario=" + usuario.getUsuario() + "\" class=\"btn-atualizar\">Atualizar</a>\r\n");
 						linhasDaTabela.append("    <td>\r\n");
 						linhasDaTabela.append("        <a href=\"cadastroUsuario?action=delete&usuario=" + usuario.getUsuario() + "\" class=\"btn-deletar\">Deletar</a>\r\n");
 						linhasDaTabela.append("    </td>\r\n");
@@ -167,7 +167,7 @@ public class CadastroUsuarioController extends HttpServlet {
 					 		+ "        <tr>\r\n"
 					 		+ "            <th>Usuario</th>\r\n"
 					 		+ "            <th>Perfil</th>\r\n"
-					 		+ "            <th>Editar</th>\r\n"
+					 		+ "            <th>Atualizar</th>\r\n"
 					 		+ "            <th>Deletar</th>\\r\\n "
 					 		+ "        </tr>\r\n"
 					 		+ "        <tr>\r\n"
@@ -193,20 +193,19 @@ public class CadastroUsuarioController extends HttpServlet {
 		
 		Usuario usuarioUser = new Usuario();
 		DaoUsuario daoUsuario = new DaoUsuario();
-		
-		String action = request.getParameter("action");
-		if (action != null && action.equals("delete")) {
-			String nomeUsuario = request.getParameter("usuario");
-			
-			response.sendRedirect(request.getContextPath() + "/cadastroUsuario");
-		}
-		
+				
 		usuarioUser.setUsuario(request.getParameter("usuario"));
 		usuarioUser.setSenha(request.getParameter("senha"));
 		usuarioUser.setPerfil(request.getParameter("perfil"));
 	
+		if (daoUsuario.verificarUsuario(usuarioUser)) {
+			daoUsuario.atualizarUsuario(usuarioUser);
 		
-		daoUsuario.salvarUsuarioBanco(usuarioUser);
+		}else {
+			daoUsuario.salvarUsuarioBanco(usuarioUser);
+		}
+		
+		
 		response.sendRedirect(request.getContextPath()+ "/cadastroUsuario");
 	}
 

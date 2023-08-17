@@ -115,40 +115,41 @@ public class DaoUsuario {
 	
 		//delete from tb_usuario where nome = 'JULIANA';	
 
-			public boolean deletarUsuario(String usuario) {
-				String sql = "delete from db_usuarios where usuario = ?";
+		
+		public boolean deletarUsuario(String usuario) {
+			String sql = "delete from db_usuarios where usuario = ?";
 				
 				
-				FabricaConexao fabricaConexao = new FabricaConexao();
+			FabricaConexao fabricaConexao = new FabricaConexao();
 				
-				Connection conexaoRecebida = null;
-				PreparedStatement declaracaoComando = null; 
+			Connection conexaoRecebida = null;
+			PreparedStatement declaracaoComando = null; 
 				
-				try {
+			try {
 					
-				 //armazena a conexao 
-					conexaoRecebida = fabricaConexao.criarConexaoBancoUsuario();
+				//armazena a conexao 
+				conexaoRecebida = fabricaConexao.criarConexaoBancoUsuario();
 					
-				 // prepara o comando que sera enviado para o banco
-					declaracaoComando = (PreparedStatement) conexaoRecebida.prepareStatement(sql);
+				// prepara o comando que sera enviado para o banco
+				declaracaoComando = (PreparedStatement) conexaoRecebida.prepareStatement(sql);
 										
-					declaracaoComando.setString(1, usuario);
+				declaracaoComando.setString(1, usuario);
 				
 				// executa a query 
-					declaracaoComando.execute();
+				declaracaoComando.execute();
 					
-					System.out.println("Deletado com sucesso");
-					return true;
+				System.out.println("Deletado com sucesso");
+				return true;
 				
-				}catch (Exception e) {
-					System.out.println("Erro ao deletar o usuario");
+			}catch (Exception e) {
+				System.out.println("Erro ao deletar o usuario");
 					
-				} finally {
+			} finally {
 					
-					try {
-						if(conexaoRecebida != null) {
+				try {
+					if(conexaoRecebida != null) {
 							conexaoRecebida.close();
-						}
+					}
 						if(declaracaoComando != null) {
 							declaracaoComando.close();
 						
@@ -161,10 +162,14 @@ public class DaoUsuario {
 				}
 				return false; 
 			}
+		
+		
 
 			public boolean atualizarUsuario(Usuario usuario) {
 				
-				String sql = "UPDATE db_usuarios SET usuario = ?, perfil = ? , senha = ?";
+				boolean salvar = false;
+				
+				String sql = "UPDATE db_usuarios SET perfil = ? , senha = ? WHERE usuario = ? ";
 				
 				FabricaConexao fabricaConexao = new FabricaConexao();
 				
@@ -208,8 +213,27 @@ public class DaoUsuario {
 					
 					}
 				}
-				return false; 
+				return salvar; 
 			}
+			
+			public boolean verificarUsuario (Usuario usuario) {
+				
+				List <Usuario> usuariosBanco = buscarListaUsuario();
+				
+				for (Usuario usuarioBanco : usuariosBanco) {
+					if (usuario.getUsuario().equals(usuarioBanco.getUsuario())) {
+						
+						return true; 
+					}
+					
+				
+			}
+				return false;
+				
+				
+			}
+			
+			
 				
 	}
 			
