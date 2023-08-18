@@ -42,7 +42,7 @@ public class CadastroUsuarioController extends HttpServlet {
 					response.sendRedirect(request.getContextPath() +"/cadastroUsuario");
 				}
 				
-				if (acao != null && acao.equals("update")) {
+				if (acao != null && acao.equals("edit")) {
 					nomeUsuario = request.getParameter("usuario");
 					botaoForm = "Atualizar"; 
 				}
@@ -57,7 +57,7 @@ public class CadastroUsuarioController extends HttpServlet {
 						linhasDaTabela.append(" <td>").append(usuario.getUsuario()).append("</td>\r\n");
 						linhasDaTabela.append(" <td>").append(usuario.getPerfil()).append("</td>\r\n");
 						linhasDaTabela.append("    <td>\r\n");
-						linhasDaTabela.append("			<a href=\\\"cadastroUsuario?action=edit&usuario=" + usuario.getUsuario() + "\" class=\"btn-atualizar\">Atualizar</a>\r\n");
+						linhasDaTabela.append("		   <a href=\"cadastroUsuario?action=edit&usuario=" + usuario.getUsuario() + "\" class=\"btn-atualizar\">Atualizar</a>\r\n");
 						linhasDaTabela.append("    <td>\r\n");
 						linhasDaTabela.append("        <a href=\"cadastroUsuario?action=delete&usuario=" + usuario.getUsuario() + "\" class=\"btn-deletar\">Deletar</a>\r\n");
 						linhasDaTabela.append("    </td>\r\n");
@@ -101,7 +101,7 @@ public class CadastroUsuarioController extends HttpServlet {
 					 		+ "            cursor: pointer;\r\n"
 					 		+ "        }\r\n"
 					 		+ "\r\n"
-					 		+ "        .btn-editar {\r\n"
+					 		+ "        .btn-atualizar {\r\n"
 					 		+ "            background-color: #ff4444;\r\n"
 					 		+ "        }\r\n"
 					 		+ "\r\n" 		
@@ -149,18 +149,19 @@ public class CadastroUsuarioController extends HttpServlet {
 					 		+ "    </nav><br>\r\n"
 					 		+ "    <form action=\"cadastroUsuario\" method=\"post\">\r\n"
 					 		+ "        <label>Nome:</label>\r\n"
-					 		+ "        <input type=\"text\" id=\"usuario\" name=\"usuario\">\r\n"
+					 		+ "    <input value=\""+nomeUsuario+"\" type=\"text\" id=\"nome\" name=\"nome\" autocomplete=\"off\">"
 					 		+ "\r\n"
 					 		+ "        <label>Senha:</label>\r\n"
-					 		+ "        <input type=\"password\" id=\"senha\" name=\"senha\">\r\n"
-					 		+ "\r\n"
+					 		+"     <input value=\"\" type=\"password\" id=\"senha\" name=\"senha\" autocomplete=\"off\">"
+						 	+ "\r\n"
 					 		+ "        <label>Perfil:</label>\r\n"
 					 		+ "        <select id=\"perfil\" name=\"perfil\">\r\n"
+					 		+ "            <option value=\"\"></option>\r\n\""
 					 		+ "            <option value=\"ADM\">ADM</option>\r\n"
 					 		+ "            <option value=\"COMUM\">COMUM</option>\r\n"
 					 		+ "        </select>\r\n"
 					 		+ "\r\n"
-					 		+ "        <button class=\"btn-enviar\" type=\"submit\">Enviar</button>\r\n"
+					 		+ "        <button class=\"btn-enviar\" type=\"submit\">"+botaoForm+"</button>\r\n"
 					 		+ "    </form>\r\n"
 					 		+ "\r\n"
 					 		+ "    <table class=\"custom-table\">\r\n"

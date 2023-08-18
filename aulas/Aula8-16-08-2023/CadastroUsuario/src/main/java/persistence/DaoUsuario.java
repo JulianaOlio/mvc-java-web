@@ -31,9 +31,9 @@ public class DaoUsuario {
 			declaracaoComando = (PreparedStatement) conexaoRecebida.prepareStatement(comandoSqlInsert);
 			
 			// Passa os parametros Values da query SQL
-			declaracaoComando.setString(1, usuario.getUsuario().toUpperCase());
-			declaracaoComando.setString(2, usuario.getPerfil().toUpperCase());
-			declaracaoComando.setString(3, usuario.getSenha().toUpperCase());
+			declaracaoComando.setString(1, usuario.getUsuario());
+			declaracaoComando.setString(2, usuario.getPerfil());
+			declaracaoComando.setString(3, usuario.getSenha());
 		
 			//Executa a query
 			declaracaoComando.execute();
@@ -113,7 +113,7 @@ public class DaoUsuario {
 		
 	}
 	
-		//delete from tb_usuario where nome = 'JULIANA';	
+		//delete from tb_usuario where nome = '';	
 
 		
 		public boolean deletarUsuario(String usuario) {
@@ -167,11 +167,11 @@ public class DaoUsuario {
 
 			public boolean atualizarUsuario(Usuario usuario) {
 				
+				FabricaConexao fabricaConexao = new FabricaConexao();
+				
 				boolean salvar = false;
 				
 				String sql = "UPDATE db_usuarios SET perfil = ? , senha = ? WHERE usuario = ? ";
-				
-				FabricaConexao fabricaConexao = new FabricaConexao();
 				
 				Connection conexaoRecebida = null;
 				PreparedStatement declaracaoComando = null; 
