@@ -63,7 +63,7 @@
 		<h2>Tela de Login - JSP</h2>
 		<form action="login" method="post">
 			<div class="form-group">
-				<label for="username">Usu�rio:</label>
+				<label for="username">Usuario:</label>
 				<input type="text" id="username" name="username" required>
 			</div>
 			<div class="form-group">

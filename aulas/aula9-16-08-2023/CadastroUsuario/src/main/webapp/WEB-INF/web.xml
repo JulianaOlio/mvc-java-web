@@ -33,11 +33,11 @@
 <!-- Servlet do cadastro de usuario -->
 	
 	<servlet>
-		<servlet-name>CadastroUsuario</servlet-name>
+		<servlet-name>CadastroUsuarioController</servlet-name>
 		<servlet-class>controller.CadastroUsuarioController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>CadastroUsuario</servlet-name>
+		<servlet-name>CadastroUsuarioController</servlet-name>
 		<url-pattern>/cadastroUsuario</url-pattern>
 	</servlet-mapping>
  

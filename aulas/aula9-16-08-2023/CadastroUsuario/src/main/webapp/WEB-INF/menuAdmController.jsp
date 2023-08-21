@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page  import="model.Usuario" %>
@@ -50,7 +51,7 @@
 		<%
 			if(usuarioLogado.getPerfil().equals("ADM")){
 				administrarValor = "Administrar";
-				link = "cadastroUsuario";
+				link = "cadastroUsuarioController";
 			}else{
 				administrarValor = "";
 				link = "acessoNegado";
@@ -64,6 +65,7 @@
 	
 	 
 		<p>Bem-vindo, <%= usuarioLogado.getUsuario() %>!</p>
+	
 	
 	
 </body>
