@@ -3,18 +3,18 @@ package model;
 public class HelloWorld {
 
 	
-	String frases = " ";
+	String buscaFrases = " ";
 
 	public HelloWorld(String frases) {
-		this.frases = frases;
+		this.buscaFrases = frases;
 	}
 
-	public String getFrases() {
-		return frases;
+	public String getBuscaFrases() {
+		return buscaFrases;
 	}
 
-	public void setFrases(String frases) {
-		this.frases = frases;
+	public void setBuscaFrases(String frases) {
+		this.buscaFrases = frases;
 	}
 	
 	

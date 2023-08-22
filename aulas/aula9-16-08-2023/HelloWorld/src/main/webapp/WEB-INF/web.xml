@@ -12,12 +12,12 @@
    
  <!-- Servlet hello World -->
 	<servlet>
-		<servlet-name>HelloWorld</servlet-name>
-		<servlet-class>helloWorld.HelloWorld</servlet-class>
+		<servlet-name>HelloWorldController</servlet-name>
+		<servlet-class>controller.HelloWorldController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>HelloWorld</servlet-name>
-		<url-pattern>/helloWorld</url-pattern>
+		<servlet-name>HelloWorldController</servlet-name>
+		<url-pattern>/helloWorldController</url-pattern>
 	</servlet-mapping>
 
 </web-app>

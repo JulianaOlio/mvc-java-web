@@ -29,7 +29,7 @@ public class DaoHelloWorld {
 			declaracaoComando = (PreparedStatement) conexaoRecebida.prepareStatement(comandoSqlInset);
 			
 			// Passa os parametros Values da query SQL
-			declaracaoComando.setString(1, ola.getFrases());
+			declaracaoComando.setString(1, ola.getBuscaFrases());
 			
 			
 			declaracaoComando.execute();
