@@ -10,7 +10,7 @@ public class FabricaConexao {
 		private String senha = "ROOT";
 		
 		
-		private static String BANCO_URL_USUARIOS = "jdbc:mysql://localhost:3306/db_frases?useTimezone=true&serverTimezone=UTC";
+		private static String BANCO_URL_USUARIOS = "jdbc:mysql://localhost:3306/hello?useTimezone=true&serverTimezone=UTC";
 	
 		public Connection criarConexaoBD() {
 			Connection conexao = null; 

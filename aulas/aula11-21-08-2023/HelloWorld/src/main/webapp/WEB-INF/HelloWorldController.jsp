@@ -6,10 +6,17 @@
     
 <!DOCTYPE html>
 <html>
+
+<% 
+	DaoHelloWorld daoHelloWorld = new DaoHelloWorld();
+	String frase = daoHelloWorld.buscarFrases();
+
+%>
 <head>
 <meta charset="ISO-8859-1">
 <title>Barra de Navegação</title>
 </head>
+
 <body>
 	  <style>
        ul.navbar {
@@ -38,17 +45,17 @@
     </style>
 </body>
 <% 
-		HttpSession sessao = request.getSession();
-		HelloWorld fraseSelecionada = (HelloWorld) sessao.getAttribute("FraseInformada");
-	%>
+		
+%>
 
     <ul class="navbar">
         <li><a href="#">Pagina Inicial</a></li>
  				
 	</ul>
 	
+	
  
-		<p>Qual foi a frase?: , <%= fraseSelecionada.getBuscaFrases()%>!</p>
+		<p>A frase é: , <%=frase %>!</p>
 	
 	
 	
